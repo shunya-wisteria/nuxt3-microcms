@@ -1,4 +1,4 @@
-import { useGetPostRoutesServ, useGetPostListRoutesServ } from "./composables/useMicrocmsImpServ";
+import { useGetPostRoutesServ, useGetPostListRoutesServ, useGetTagsRouteServ } from "./composables/useMicrocmsImpServ";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -19,6 +19,9 @@ export default defineNuxtConfig({
 
       const postList = await useGetPostListRoutesServ(apiKey, apiEndpoint, pageLimit);
       nitroConfig.prerender?.routes?.push(...postList);
+
+      const tags = await useGetTagsRouteServ(apiKey, apiEndpoint, pageLimit);
+      nitroConfig.prerender?.routes?.push(...tags);
     }
   },
 

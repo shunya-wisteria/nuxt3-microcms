@@ -61,3 +61,36 @@ export async function useGetPostListRoutesServ(apiKey:string, apiEndpoint:string
   }
   return pageList.map((obj: { page: string }) => `/posts/${obj.page}`);
 }
+
+// タグListルート取得
+export async function useGetTagsRouteServ(apiKey:string, apiEndpoint:string, pageLimit:number):Promise<string[]>
+{
+  const url = apiEndpoint + "/tags?field=id&limit=100";
+  const res = await fetch(
+    url,
+    {
+      method: "GET",
+      headers: {
+        'X-MICROCMS-API-KEY': apiKey
+      }
+    }
+  );
+  const id = (await res.json()).contents;
+
+  const routeList = [];
+  // タグ毎にページングルート作成
+  for(let i = 0; i < id.length; i++)
+  {
+    // index用ルート
+    routeList.push({id: id[i].id, page: ""});
+    // 対象post件数
+    const totalCount = await useGetPostsCountServ("posts", "tags[contains]" + id[i].id, {key:apiKey, endpoint:apiEndpoint});
+    // ページ数
+    const maxPage = Math.ceil(totalCount / pageLimit);
+    for(let j = 0; j < maxPage; j++)
+    {
+      routeList.push({id: id[i].id, page: (j+1).toString()});
+    }
+  }
+  return routeList.map((obj:{id : string, page : string}) => `/tags/${obj.id}/${obj.page}`)
+}

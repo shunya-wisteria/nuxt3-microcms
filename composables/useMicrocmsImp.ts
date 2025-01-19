@@ -1,7 +1,5 @@
 import type { Post } from "~~/types/post";
 import type { Tag } from "~~/types/tag";
-import type { MicroCMSListContent, MicroCMSQueries } from 'microcms-js-sdk';
-import type { FetchError } from 'ofetch';
 
 type MicroCMSaGetListPerPageArgs = {
   endpoint: string;
@@ -29,4 +27,18 @@ export async function useMicroCMSaGetPostCount({endpoint, filters}:MicroCMSaGetP
   },{key:filters + "-count"});
 
   return data.value?.totalCount ? data.value.totalCount : 0;
+}
+
+export async function useMicroCMSaGetTags() {
+  return await useMicroCMSGetList<Tag>({
+    endpoint: "tags",
+    queries: {limit:100}
+  },{key:"tags"});
+}
+
+export async function useMicroCMSaGetTag(tagId:string) {
+  return await useMicroCMSGetListDetail<Tag>({
+    endpoint: "tags",
+    contentId: tagId
+  }, {key:"tags_" + tagId})
 }
