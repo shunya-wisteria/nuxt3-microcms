@@ -1,8 +1,7 @@
-# Nuxt Minimal Starter
-
+# microCMS Baseline Implementation for Nuxt3 + Vuetify3 Starter
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Setup
+## Setup Project
 
 Make sure to install dependencies:
 
@@ -18,6 +17,21 @@ yarn install
 
 # bun
 bun install
+```
+
+## Setup Environment Variables
+Create .env file at project root, and write your project information like below.
+```
+MICROCMS_API_ENDPOINT=<MICROCMS_API_ENDPOINT>
+MICROCMS_SERVICE_DOMAIN=<MICROCMS_SERVICE_DOMAIN>
+MICROCMS_API_KEY=<MICROCMS_API_KEY>
+
+SITE_TITLE=<Your site title, used at meta info>
+META_DESCRIPTION=<Your site description, used at meta info>
+META_OG_URL=<Your production site url, used at meta info>
+META_TWITTER_ID=<Your X(twitter) id, used at meta info>
+
+PAGE_LIMIT=<Post Count Per Page, recommended: 6>
 ```
 
 ## Development Server
@@ -40,20 +54,20 @@ bun run dev
 
 ## Production
 
-Build the application for production:
+Generate Static Pages for production:
 
 ```bash
 # npm
-npm run build
+npm run generate
 
 # pnpm
-pnpm build
+pnpm generate
 
 # yarn
-yarn build
+yarn generate
 
 # bun
-bun run build
+bun run generate
 ```
 
 Locally preview production build:
