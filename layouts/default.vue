@@ -4,7 +4,7 @@
     <v-app-bar>
       <span class="headline">
         <nuxt-link to="/" style="color:inherit;border-bottom:none;">
-          Nuxt3 Jamstack Blogs
+          {{ pageInfo.title }}
         </nuxt-link>
       </span>
 
@@ -16,13 +16,23 @@
 
     <v-footer :absolute="true" height="120px">
       <v-col class="text-center" cols="12">
-        &copy; {{ new Date().getFullYear() }}
+        &copy; {{ new Date().getFullYear() }} {{ pageInfo.author }}
       </v-col>
     </v-footer>
 
 
   </v-app>
 </template>
+
+<script setup lang="ts">
+import type { PageInfo } from '~/types/pageinfo';
+
+const { data } = await useMicroCMSGetObject({endpoint:"pageinfo"});
+const pageInfo = useState<PageInfo>('PageInfo', ()=>{
+    return data.value as PageInfo
+  })
+
+</script>
 
 <style scoped>
 .headline{
