@@ -45,7 +45,6 @@ const pageInfo = useState<PageInfo>('PageInfo', () => {
 })
 
 // Navigation Menu settings
-const { mdAndDown } = useDisplay();
 const drawer = ref(false);
 const menuItem = ref(
   [
