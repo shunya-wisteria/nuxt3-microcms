@@ -14,7 +14,8 @@
 const config = useRuntimeConfig();
 const { params } = useRoute();
 
-const page = Number(Array.isArray(params.page) ? params.page[0] : params.page);
+// const page = Number(Array.isArray(params.page) ? params.page[0] : params.page);
+const page = 1;
 const pageLimit = Number(config.public.pageLimit);
 
 const { data } = await useMicroCMSaGetListPerPage(

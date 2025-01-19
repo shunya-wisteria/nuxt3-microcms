@@ -1,5 +1,4 @@
 <template>
-  <h1>Nuxt3 Jamstack Blogs</h1>
   <PostIndex
     :posts="data?.contents"
   />
@@ -12,16 +11,13 @@
 </template>
 
 <script setup lang="ts">
-import { Blog } from "~~/types/Blog";
-import { Post } from "~~/types/Post"
-
 const config = useRuntimeConfig();
 const { params } = useRoute();
 
-const page = Array.isArray(params.page) ? params.page[0] : params.page;
-const pageLimit = config.public.pageLimit;
+const page = Number(Array.isArray(params.page) ? params.page[0] : params.page);
+const pageLimit = Number(config.public.pageLimit);
 
-const { data } = await useMicroCMSaGetListPerPage<Post>(
+const { data } = await useMicroCMSaGetListPerPage(
   {
     endpoint: "posts",
     filters: "",

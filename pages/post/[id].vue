@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { Post } from "~~/types/post";
+import type { Post } from "~~/types/post";
 
 const { params } = useRoute();
 
