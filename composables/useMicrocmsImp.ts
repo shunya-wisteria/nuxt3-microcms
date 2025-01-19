@@ -28,5 +28,5 @@ export async function useMicroCMSaGetPostCount({endpoint, filters}:MicroCMSaGetP
     queries:{fields:"totalCount", filters:filters}
   },{key:filters + "-count"});
 
-  return data.value?.totalCount;
+  return data.value?.totalCount ? data.value.totalCount : 0;
 }

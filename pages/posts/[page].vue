@@ -1,20 +1,8 @@
 <template>
   <h1>Nuxt3 Jamstack Blogs</h1>
-  <ul>
-    <li v-for="post in data?.contents" :key="post.id">
-      <NuxtLink :to="`/post/${post.id}`">
-        <img :src="post.eyecatch?.url" :width="post.eyecatch?.width" :height="post.eyecatch?.height" alt="" />
-        <div>
-          <div>
-            {{ post.title }}
-          </div>
-          <div>
-            {{ post.publishedAt ?? post.createdAt }}
-          </div>
-        </div>
-      </NuxtLink>
-    </li>
-  </ul>
+  <PostIndex
+    :posts="data?.contents"
+  />
 
   <template v-for="n in totalPage" :key="n">
     <NuxtLink :to="`/posts/${n}`" style="margin:20px">
