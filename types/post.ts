@@ -9,6 +9,7 @@ export type Post = {
   revisedAt?: string;
   title?: string;
   eyecatch?: MicroCMSImage | null;
+  abstract?: string;
   body?: string;
   tags?: (MicroCMSListContent & Tag) | null;
 };
