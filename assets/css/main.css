@@ -97,6 +97,7 @@ h3{
   height: auto;
   max-width: 1200px; 
   border:1px solid rgb(var(--v-theme-img_border));
+  display: block;
   margin: 0 auto;
   margin-top:5px;
   margin-bottom: 5px;
