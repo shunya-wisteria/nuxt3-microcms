@@ -18,6 +18,7 @@
     "vuetify-nuxt-module": "^0.18.3"
   },
   "devDependencies": {
-    "@nuxtjs/google-fonts": "^3.2.0"
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/sitemap": "^7.2.4"
   }
 }

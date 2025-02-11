@@ -55,7 +55,7 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ["nuxt-microcms-module", "vuetify-nuxt-module", "@nuxtjs/google-fonts"],
+  modules: ["nuxt-microcms-module", "vuetify-nuxt-module", "@nuxtjs/google-fonts", "@nuxtjs/sitemap"],
   microCMS: {
     serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
     apiKey: process.env.MICROCMS_API_KEY,
@@ -73,12 +73,16 @@ export default defineNuxtConfig({
     }
   },
 
-  // experimental: { payloadExtraction: false, },
-
   nitro: {
     prerender: {
       failOnError: false,
     },
+  },
+
+  site:{
+    url:process.env.HOST_NAME,
+    name: process.env.SITE_TITLE,
+    trailingSlash: true
   },
 
   runtimeConfig:{
