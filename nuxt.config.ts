@@ -55,7 +55,7 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ["nuxt-microcms-module", "vuetify-nuxt-module", "@nuxtjs/google-fonts", "@nuxtjs/sitemap"],
+  modules: ["nuxt-microcms-module", "vuetify-nuxt-module", "@nuxtjs/google-fonts", "@nuxtjs/sitemap", "nuxt-gtag"],
   microCMS: {
     serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
     apiKey: process.env.MICROCMS_API_KEY,
@@ -83,6 +83,10 @@ export default defineNuxtConfig({
     url:process.env.HOST_NAME,
     name: process.env.SITE_TITLE,
     trailingSlash: true
+  },
+
+  gtag:{
+    id: process.env.GAID,
   },
 
   runtimeConfig:{
