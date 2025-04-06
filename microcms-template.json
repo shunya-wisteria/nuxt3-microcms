@@ -1,0 +1,99 @@
+{
+  "name": "microCMS template",
+  "plan": "Hobby",
+  "schemaVersion": "1.0.0",
+  "schema": [
+    {
+      "apiId": "API#fece1905-6a76-4fec-9539-930edd69962b",
+      "apiName": "PageInfo",
+      "apiDescription": null,
+      "apiEndpoint": "pageinfo",
+      "apiType": "PAGE",
+      "apiFields": [
+        {
+          "idValue": "EGK3dP07Bt",
+          "fieldId": "title",
+          "name": "ページタイトル",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "EyUn9t89wC",
+          "fieldId": "author",
+          "name": "著者",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "Kru_zaNwqj",
+          "fieldId": "about",
+          "name": "ページ概要",
+          "kind": "richEditorV2",
+          "required": true
+        }
+      ],
+      "customFields": []
+    },
+    {
+      "apiId": "API#7b5e05eb-8873-44f2-9af4-928251bbb059",
+      "apiName": "Posts",
+      "apiDescription": null,
+      "apiEndpoint": "posts",
+      "apiType": "LIST",
+      "apiFields": [
+        {
+          "idValue": "DAEsF07Aag",
+          "fieldId": "title",
+          "name": "タイトル",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "muNRTuAZ1M",
+          "fieldId": "abstract",
+          "name": "概要",
+          "kind": "textArea",
+          "required": true
+        },
+        {
+          "idValue": "pry4-5lUN-",
+          "fieldId": "eyecatch",
+          "name": "アイキャッチ",
+          "kind": "media"
+        },
+        {
+          "idValue": "lCAWyAEB9E",
+          "fieldId": "body",
+          "name": "本文",
+          "kind": "richEditorV2",
+          "required": true
+        },
+        {
+          "idValue": "7kKZ-PlJjF",
+          "fieldId": "tags",
+          "name": "タグ",
+          "kind": "relationList",
+          "referenceKey": "API#c2d47c06-c984-4748-9d0e-50695e85c756"
+        }
+      ],
+      "customFields": []
+    },
+    {
+      "apiId": "API#c2d47c06-c984-4748-9d0e-50695e85c756",
+      "apiName": "Tags",
+      "apiDescription": null,
+      "apiEndpoint": "tags",
+      "apiType": "LIST",
+      "apiFields": [
+        {
+          "idValue": "yf0VdN7aCZ",
+          "fieldId": "name",
+          "name": "タグ名",
+          "kind": "text",
+          "required": true
+        }
+      ],
+      "customFields": []
+    }
+  ]
+}
